@@ -76,7 +76,7 @@
   pdftitle={MyriadPro Support for LaTeX},
   pdfauthor={Achim Blumensath, Andreas B\"uhmann, Michael Zedler,
     Sebastian Schubert},
-  pdfkeywords={LaTeX, MyriadPro, MnSymbol}
+  pdfkeywords={LaTeX, MyriadPro, MySymbol}
 }
 
 \IfFileExists{lmodern.sty}{%
@@ -169,13 +169,13 @@
 % \label{sec:Interferences}
 %
 % The \pkg{MyriadPro} package automatically loads the following packages:
-% \pkg{textcomp}, \pkg{amsmath}, and \pkg{MnSymbol} (version~1.4).
+% \pkg{textcomp}, \pkg{amsmath}, and \pkg{MySymbol} (version~1.4).
 % If you want to pass options to these packages you can
 % either put the corresponding |\usepackage| command before the
 % |\usepackage{MyriadPro}| or you can include the options in the
 % |\documentclass| command. The \pkg{MyriadPro} package is \emph{not}
 % compatible with \pkg{amssymb} and \pkg{amsfonts}. Please see also the
-% corresponding section in the \pkg{MnSymbol} documentation.
+% corresponding section in the \pkg{MySymbol} documentation.
 %
 % The MyriadPro package includes support files for the \pkg{microtype} package
 % (version~1.8 or higher), consult the package's documentation for further details.
@@ -230,7 +230,7 @@
 % These options specify which font is used by the |\mathcal| command.
 %
 % \begin{options}
-% \item[\option*{mnsy}] use the calligraphic font from MnSymbol: $\mathcal{ABC}$
+% \item[\option*{mysy}] use the calligraphic font from MySymbol: $\mathcal{ABC}$
 % \item[\option{cmsy}]  take the calligraphic symbols from Computer Modern:
 %                       {\fontencoding{OMS}\fontfamily{cmsy}\selectfont ABC}
 % \item[\option{abx}]   use the calligraphic symbols provided by mathabx:
@@ -284,7 +284,7 @@
 %      scale the font size by <\emph{factor}>
 % \item[\option{myriadint}]
 %      take the integral symbols from MyriadPro, not from
-%      MnSymbol: $\displaystyle\int$ instead of $\displaystyle\varint$
+%      MySymbol: $\displaystyle\int$ instead of $\displaystyle\varint$
 % \item[\option{openg}]
 %      use $\openg$ instead of $g$ in math mode.
 % \item[\option{loosequotes}]
@@ -355,7 +355,7 @@
 %
 % \section{Additional font shapes and symbols}
 %
-% The \pkg{MyriadPro} package provides all symbols from the \pkg{MnSymbol} package.
+% The \pkg{MyriadPro} package provides all symbols from the \pkg{MySymbol} package.
 % Additionally, the following math symbols are available:
 %
 % \medskip\tabindent
@@ -596,22 +596,22 @@
 \newcommand\My@load@bb{}
 \newcommand\My@load@frak{}
 %    \end{macrocode}
-% Most options are handled by \pkg{MnSymbol}.
+% Most options are handled by \pkg{MySymbol}.
 %    \begin{macrocode}
-\DeclareVoidOption{mnsy}{
-  \PassOptionsToPackage{mnsy}{MnSymbol}
+\DeclareVoidOption{mysy}{
+  \PassOptionsToPackage{mysy}{MySymbol}
   \def\My@load@cal{
-    \SetMathAlphabet\mathcal{boldtabular}{OMS}{MnSymbolS}{b}{n}
+    \SetMathAlphabet\mathcal{boldtabular}{OMS}{MySymbolS}{b}{n}
   }
 }
 \DeclareVoidOption{cmsy}{
-  \PassOptionsToPackage{cmsy}{MnSymbol}
+  \PassOptionsToPackage{cmsy}{MySymbol}
   \def\My@load@cal{
     \SetMathAlphabet\mathcal{boldtabular}{OMS}{cmsy}{b}{n}
   }
 }
 \DeclareVoidOption{abx}{
-  \PassOptionsToPackage{abx}{MnSymbol}
+  \PassOptionsToPackage{abx}{MySymbol}
 %  \def\My@load@cal{
 %    \SetMathAlphabet\mathcal{boldtabular}{OT1}{mathc}{b}{n}
 %  }
@@ -733,7 +733,7 @@
 \@ifpackageloaded{textcomp}{}{\RequirePackage{textcomp}}
 
 \if@My@Math@
-  \RequirePackage{MnSymbol}[2007/01/21 v1.4]
+  \RequirePackage{MySymbol}[2007/01/21 v1.4]
 %    \end{macrocode}
 % If no fraktur font is loaded then take the Euler font.
 %    \begin{macrocode}
@@ -1161,7 +1161,7 @@
 %    \begin{macrocode}
 \newcommand*\Myensure@text[1]{%
   \ifmmode
-    \Mn@Text@With@MathVersion{#1}%
+    \My@Text@With@MathVersion{#1}%
   \else
     #1%
   \fi}
@@ -1190,7 +1190,7 @@
 %
 % \subsection{Additional symbols}
 %
-% Some symbols missing from MnSymbol can be taken from MyriadPro.
+% Some symbols missing from MySymbol can be taken from MyriadPro.
 %
 %    \begin{macrocode}
 \if@My@Math@
@@ -1238,13 +1238,13 @@
 %
 % \subsection{Integral symbols}
 %
-% We can also replace the integral signs from MnSymbol by those of MyriadPro.
+% We can also replace the integral signs from MySymbol by those of MyriadPro.
 % The following definitions provide this as an option.
 %    \begin{macrocode}
 \if@My@Math@
   \newcommand\My@Decl@Myriad@Ints{%
 %    \end{macrocode}
-% Replace |MnSymbolF| by |MySymbolFI|.
+% Replace |MySymbolF| by |MySymbolFI|.
 %    \begin{macrocode}
     \DeclareFontFamily{U}{MySymbolFI}{}
     \DeclareFontShape{U}{MySymbolFI}{m}{it}{
