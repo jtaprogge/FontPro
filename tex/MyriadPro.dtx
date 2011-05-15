@@ -76,7 +76,7 @@
   pdftitle={MyriadPro Support for LaTeX},
   pdfauthor={Achim Blumensath, Andreas B\"uhmann, Michael Zedler,
     Sebastian Schubert},
-  pdfkeywords={LaTeX, MyriadPro, MySymbol}
+  pdfkeywords={LaTeX, MyriadPro, MdSymbol}
 }
 
 \IfFileExists{lmodern.sty}{%
@@ -169,13 +169,13 @@
 % \label{sec:Interferences}
 %
 % The \pkg{MyriadPro} package automatically loads the following packages:
-% \pkg{textcomp}, \pkg{amsmath}, and \pkg{MySymbol} (version~1.4).
+% \pkg{textcomp}, \pkg{amsmath}, and \pkg{MdSymbol} (version~1.4).
 % If you want to pass options to these packages you can
 % either put the corresponding |\usepackage| command before the
 % |\usepackage{MyriadPro}| or you can include the options in the
 % |\documentclass| command. The \pkg{MyriadPro} package is \emph{not}
 % compatible with \pkg{amssymb} and \pkg{amsfonts}. Please see also the
-% corresponding section in the \pkg{MySymbol} documentation.
+% corresponding section in the \pkg{MdSymbol} documentation.
 %
 % The MyriadPro package includes support files for the \pkg{microtype} package
 % (version~1.8 or higher), consult the package's documentation for further details.
@@ -230,7 +230,7 @@
 % These options specify which font is used by the |\mathcal| command.
 %
 % \begin{options}
-% \item[\option*{mysy}] use the calligraphic font from MySymbol: $\mathcal{ABC}$
+% \item[\option*{mysy}] use the calligraphic font from MdSymbol: $\mathcal{ABC}$
 % \item[\option{cmsy}]  take the calligraphic symbols from Computer Modern:
 %                       {\fontencoding{OMS}\fontfamily{cmsy}\selectfont ABC}
 % \item[\option{abx}]   use the calligraphic symbols provided by mathabx:
@@ -284,7 +284,7 @@
 %      scale the font size by <\emph{factor}>
 % \item[\option{myriadint}]
 %      take the integral symbols from MyriadPro, not from
-%      MySymbol: $\displaystyle\int$ instead of $\displaystyle\varint$
+%      MdSymbol: $\displaystyle\int$ instead of $\displaystyle\varint$
 % \item[\option{openg}]
 %      use $\openg$ instead of $g$ in math mode.
 % \item[\option{loosequotes}]
@@ -355,7 +355,7 @@
 %
 % \section{Additional font shapes and symbols}
 %
-% The \pkg{MyriadPro} package provides all symbols from the \pkg{MySymbol} package.
+% The \pkg{MyriadPro} package provides all symbols from the \pkg{MdSymbol} package.
 % Additionally, the following math symbols are available:
 %
 % \medskip\tabindent
@@ -526,17 +526,17 @@
 %
 %    \begin{macrocode}
 %<*style>
-\newif\if@My@Text@
-\newif\if@My@Math@
-\@My@Text@true
-\@My@Math@true
+\newif\if@Md@Text@
+\newif\if@Md@Math@
+\@Md@Text@true
+\@Md@Math@true
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions{
-  family = My,
-  prefix = My@
+  family = Md,
+  prefix = Md@
 }
-\DeclareVoidOption{onlytext}{\@My@Text@true\@My@Math@false}
-\DeclareVoidOption{onlymath}{\@My@Text@false\@My@Math@true}
+\DeclareVoidOption{onlytext}{\@Md@Text@true\@Md@Math@false}
+\DeclareVoidOption{onlymath}{\@Md@Text@false\@Md@Math@true}
 %    \end{macrocode}
 %
 % \subsubsection{Font sets}
@@ -547,19 +547,19 @@
 % MyriadPro integrals are handled here in \pkg{MyriadPro}.
 %    \begin{macrocode}
 \DeclareStringOption[1.]{scaled}
-\newcommand\My@myriadint@opticals{-NoOpticals}
-\newcommand\My@myriadint@bold{-Bold}
+\newcommand\Md@myriadint@opticals{-NoOpticals}
+\newcommand\Md@myriadint@bold{-Bold}
 \DeclareVoidOption{noopticals}{%
-  \def\My@myriadint@opticals{-NoOpticals}%
+  \def\Md@myriadint@opticals{-NoOpticals}%
   \PassOptionsToPackage{noopticals}{MyriadPro-FontDef}}
 \DeclareVoidOption{smallfamily}{%
-  \def\My@myriadint@bold{-Bold}%
+  \def\Md@myriadint@bold{-Bold}%
   \PassOptionsToPackage{smallfamily}{MyriadPro-FontDef}}
 \DeclareVoidOption{medfamily}{%
-  \def\My@myriadint@bold{-Semibold}%
+  \def\Md@myriadint@bold{-Semibold}%
   \PassOptionsToPackage{medfamily}{MyriadPro-FontDef}}
 %\DeclareVoidOption{fullfamily}{%
-%  \def\My@myriadint@bold{-Semibold}%
+%  \def\Md@myriadint@bold{-Semibold}%
 %  \PassOptionsToPackage{fullfamily}{MyriadPro-FontDef}}
 \DeclareVoidOption{normalsize}{%
   \PassOptionsToPackage{normalsize}{MyriadPro-FontDef}}
@@ -568,51 +568,51 @@
 % \subsubsection{Figure style}
 %
 %    \begin{macrocode}
-\newcommand\My@Text@Fig{OsF}
-\newcommand\My@Math@Fig{OsF}
-\newcommand\My@Text@Family{MyriadPro-\My@Text@Fig}
-\newcommand\My@Math@Family{MyriadPro-\My@Math@Fig}
-\newcommand\My@Math@TFamily{MyriadPro-T\My@Math@Fig}
-\newcommand\My@Math@LetterShape{it}
-\newcommand\Cr@Math@Family{CronosPro-\My@Math@Fig}
-\newcommand\Cr@Math@TFamily{CronosPro-T\My@Math@Fig}
+\newcommand\Md@Text@Fig{OsF}
+\newcommand\Md@Math@Fig{OsF}
+\newcommand\Md@Text@Family{MyriadPro-\Md@Text@Fig}
+\newcommand\Md@Math@Family{MyriadPro-\Md@Math@Fig}
+\newcommand\Md@Math@TFamily{MyriadPro-T\Md@Math@Fig}
+\newcommand\Md@Math@LetterShape{it}
+\newcommand\Cr@Math@Family{CronosPro-\Md@Math@Fig}
+\newcommand\Cr@Math@TFamily{CronosPro-T\Md@Math@Fig}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\DeclareVoidOption{textosf}{\def\My@Text@Fig{OsF}}
-\DeclareVoidOption{textlf}{\def\My@Text@Fig{LF}}
-\DeclareVoidOption{mathosf}{\def\My@Math@Fig{OsF}}
-\DeclareVoidOption{mathlf}{\def\My@Math@Fig{LF}}
-\DeclareVoidOption{osf}{\setkeys{My}{textosf,mathosf}}
-\DeclareVoidOption{lf}{\setkeys{My}{textlf,mathlf}}
-\DeclareVoidOption{mathtabular}{\let\My@Math@Family\My@Math@TFamily}
+\DeclareVoidOption{textosf}{\def\Md@Text@Fig{OsF}}
+\DeclareVoidOption{textlf}{\def\Md@Text@Fig{LF}}
+\DeclareVoidOption{mathosf}{\def\Md@Math@Fig{OsF}}
+\DeclareVoidOption{mathlf}{\def\Md@Math@Fig{LF}}
+\DeclareVoidOption{osf}{\setkeys{Md}{textosf,mathosf}}
+\DeclareVoidOption{lf}{\setkeys{Md}{textlf,mathlf}}
+\DeclareVoidOption{mathtabular}{\let\Md@Math@Family\Md@Math@TFamily}
 %    \end{macrocode}
 %
 % \subsubsection{Calligraphic fonts}
 %
 % These hooks are executed once the math versions have been set up.
 %    \begin{macrocode}
-\newcommand\My@load@cal{}
-\newcommand\My@load@bb{}
-\newcommand\My@load@frak{}
+\newcommand\Md@load@cal{}
+\newcommand\Md@load@bb{}
+\newcommand\Md@load@frak{}
 %    \end{macrocode}
-% Most options are handled by \pkg{MySymbol}.
+% Most options are handled by \pkg{MdSymbol}.
 %    \begin{macrocode}
-\DeclareVoidOption{mysy}{
-  \PassOptionsToPackage{mysy}{MySymbol}
-  \def\My@load@cal{
-    \SetMathAlphabet\mathcal{boldtabular}{OMS}{MySymbolS}{b}{n}
+\DeclareVoidOption{mdsy}{
+  \PassOptionsToPackage{mdsy}{MdSymbol}
+  \def\Md@load@cal{
+    \SetMathAlphabet\mathcal{boldtabular}{OMS}{MdSymbolS}{b}{n}
   }
 }
 \DeclareVoidOption{cmsy}{
-  \PassOptionsToPackage{cmsy}{MySymbol}
-  \def\My@load@cal{
+  \PassOptionsToPackage{cmsy}{MdSymbol}
+  \def\Md@load@cal{
     \SetMathAlphabet\mathcal{boldtabular}{OMS}{cmsy}{b}{n}
   }
 }
 \DeclareVoidOption{abx}{
-  \PassOptionsToPackage{abx}{MySymbol}
-%  \def\My@load@cal{
+  \PassOptionsToPackage{abx}{MdSymbol}
+%  \def\Md@load@cal{
 %    \SetMathAlphabet\mathcal{boldtabular}{OT1}{mathc}{b}{n}
 %  }
 }
@@ -621,17 +621,17 @@
 %
 % \subsubsection{Greek letters}
 %
-% |\My@greek@Upright|, |\My@greek@Mixed|, and |\My@greek@Italic| are defined below in
-% section~\ref{sec:greek} before |\My@load@greek| is executed.
+% |\Md@greek@Upright|, |\Md@greek@Mixed|, and |\Md@greek@Italic| are defined below in
+% section~\ref{sec:greek} before |\Md@load@greek| is executed.
 %    \begin{macrocode}
-\newcommand\My@load@greek{\My@greek@Mixed}
+\newcommand\Md@load@greek{\Md@greek@Mixed}
 \DeclareVoidOption{frenchmath}{%
-  \def\My@load@greek{\My@greek@Upright}%
-  \def\My@Math@LetterShape{n}}
+  \def\Md@load@greek{\Md@greek@Upright}%
+  \def\Md@Math@LetterShape{n}}
 \DeclareVoidOption{mixedgreek}{%
-  \def\My@load@greek{\My@greek@Mixed}}
+  \def\Md@load@greek{\Md@greek@Mixed}}
 \DeclareVoidOption{italicgreek}{%
-  \def\My@load@greek{\My@greek@Italic}}
+  \def\Md@load@greek{\Md@greek@Italic}}
 %    \end{macrocode}
 %
 % \subsubsection{Blackboard bold and fraktur fonts}
@@ -641,35 +641,35 @@
 % recognize them as math alphabets and refuses to overwrite their definitions
 % (e.g., package \pkg{eufrak} uses |\newcommand{\mathfrak}{\EuFrak}|).
 %    \begin{macrocode}
-\newcommand\My@load@amsbb{
+\newcommand\Md@load@amsbb{
   \let\mathbb\@undefined
   \let\Bbbk\@undefined
   \DeclareMathAlphabet\mathbb{U}{msb}{m}{n}
   \newcommand\Bbbk{\mathbb{\mathchar"717C}}}
-\newcommand\My@load@lucidabb{
+\newcommand\Md@load@lucidabb{
   \let\mathbb\@undefined
   \let\Bbbk\@undefined
   \DeclareFontFamily{U}{hlcm}{}
   \DeclareFontShape{U}{hlcm}{m}{n}{ <->s*[0.92] hlcra }{}
   \DeclareMathAlphabet\mathbb{U}{hlcm}{m}{n}
   \newcommand\Bbbk{\mathbb{k}}}
-\newcommand\My@load@fourierbb{
+\newcommand\Md@load@fourierbb{
   \let\mathbb\@undefined
   \let\Bbbk\@undefined
   \DeclareFontFamily{U}{futm}{}
   \DeclareFontShape{U}{futm}{m}{n}{ <->s*[0.95] fourier-bb }{}
   \DeclareMathAlphabet\mathbb{U}{futm}{m}{n}
   \newcommand\Bbbk{\mathbb{k}}}
-\DeclareVoidOption{amsbb}{\let\My@load@bb\My@load@amsbb}
-\DeclareVoidOption{lucidabb}{\let\My@load@bb\My@load@lucidabb}
-\DeclareVoidOption{fourierbb}{\let\My@load@bb\My@load@fourierbb}
+\DeclareVoidOption{amsbb}{\let\Md@load@bb\Md@load@amsbb}
+\DeclareVoidOption{lucidabb}{\let\Md@load@bb\Md@load@lucidabb}
+\DeclareVoidOption{fourierbb}{\let\Md@load@bb\Md@load@fourierbb}
 %    \end{macrocode}
 %
 % \subsubsection{Integrals}
 %
 %    \begin{macrocode}
-\newcommand\My@load@integrals{}
-\DeclareVoidOption{myriadint}{\def\My@load@integrals{\My@Decl@Myriad@Ints}}
+\newcommand\Md@load@integrals{}
+\DeclareVoidOption{myriadint}{\def\Md@load@integrals{\Md@Decl@Myriad@Ints}}
 %    \end{macrocode}
 %
 % \subsubsection{Miscellaneous options}
@@ -684,40 +684,40 @@
     \@thefnmark
     \endgroup}}
 %
-\newcommand\My@Define@Open@g{}
+\newcommand\Md@Define@Open@g{}
 \DeclareVoidOption{openg}{%
-  \def\My@Define@Open@g{%
+  \def\Md@Define@Open@g{%
     \mathcode`g="8000%
-    \DeclareMathSymbol{\My@g}{\mathalpha}{letters}{`g}%
+    \DeclareMathSymbol{\Md@g}{\mathalpha}{letters}{`g}%
     \begingroup
     \lccode`\~=`\g
-    \lowercase{\gdef~{\ifnum\the\mathgroup=\m@ne \openg \else \My@g \fi}}%
+    \lowercase{\gdef~{\ifnum\the\mathgroup=\m@ne \openg \else \Md@g \fi}}%
     \endgroup
   }}
 %
-\newcommand\My@Quote@Spacing{}
+\newcommand\Md@Quote@Spacing{}
 \DeclareVoidOption{loosequotes}{%
-  \def\My@Quote@Spacing{\My@Quote@Spacing@Loose}}
+  \def\Md@Quote@Spacing{\Md@Quote@Spacing@Loose}}
 %    \end{macrocode}
 %
 % \subsubsection{Defaults}
 %
 %    \begin{macrocode}
-\setkeys{My}{amsbb}
-\ProcessKeyvalOptions{My}\relax
+\setkeys{Md}{amsbb}
+\ProcessKeyvalOptions{Md}\relax
 \RequirePackage{ifthen}
-\ifthenelse{\equal{\My@crswash}{false}}{}{%
-  \def\My@load@cal{
+\ifthenelse{\equal{\Md@crswash}{false}}{}{%
+  \def\Md@load@cal{
     \RequirePackage{fltpoint}
     \fpDecimalSign{.}
-    \fpMul{\Cr@scaled}{\My@scaled}{1.08}
-    \ifthenelse{\equal{\My@crswash}{noptsmall}}{%
+    \fpMul{\Cr@scaled}{\Md@scaled}{1.08}
+    \ifthenelse{\equal{\Md@crswash}{noptsmall}}{%
       \RequirePackage{CronosPro-FontDef}}{}
-    \ifthenelse{\equal{\My@crswash}{optsmall}}{%
+    \ifthenelse{\equal{\Md@crswash}{optsmall}}{%
       \RequirePackage[opticals]{CronosPro-FontDef}}{}
-    \ifthenelse{\equal{\My@crswash}{noptmed}}{%
+    \ifthenelse{\equal{\Md@crswash}{noptmed}}{%
       \RequirePackage[medfamily]{CronosPro-FontDef}}{}
-    \ifthenelse{\equal{\My@crswash}{optmed}}{%
+    \ifthenelse{\equal{\Md@crswash}{optmed}}{%
       \RequirePackage[opticals,medfamily]{CronosPro-FontDef}}{}
     \DeclareMathAlphabet\mathcal         {T1}{\Cr@Math@Family} {m} {sw}
     \SetMathAlphabet\mathcal{bold}       {T1}{\Cr@Math@Family} {eb}{sw}
@@ -732,8 +732,8 @@
 \RequirePackage{MyriadPro-FontDef}
 \@ifpackageloaded{textcomp}{}{\RequirePackage{textcomp}}
 
-\if@My@Math@
-  \RequirePackage{MySymbol}[2007/01/21 v1.4]
+\if@Md@Math@
+  \RequirePackage{MdSymbol}[2007/01/21 v1.4]
 %    \end{macrocode}
 % If no fraktur font is loaded then take the Euler font.
 %    \begin{macrocode}
@@ -746,17 +746,17 @@
 % available this might internally be mapped to |MyriadPro-Bold| (see
 % \pkg{MyriadPro-FontDef}).
 %    \begin{macrocode}
-\if@My@Text@
-  \edef\sfdefault{\My@Text@Family}
-  \let\ibycusdefault\My@Text@Family
+\if@Md@Text@
+  \edef\sfdefault{\Md@Text@Family}
+  \let\ibycusdefault\Md@Text@Family
 %    \end{macrocode}
 % If a recent verion of \pkg{microtype} is loaded then we implement an option
 % to increase the side bearings of all quote glyphs.
 %    \begin{macrocode}
-  \def\My@Quote@Spacing@Loose{%
+  \def\Md@Quote@Spacing@Loose{%
     \@ifpackageloaded{microtype}{}{\RequirePackage[kerning=true]{microtype}}
     \@ifundefined{SetExtraKerning}{}{
-      \let\My@Set@Quote@Spacing\SetExtraKerning}
+      \let\Md@Set@Quote@Spacing\SetExtraKerning}
 %      \SetExtraKerning
 %        [ unit = 1em ]
 %        { encoding = {OT1,T1,LGR,U,OT2,T2A,T2B,T2C,T5,X2,LY1},
@@ -765,9 +765,9 @@
 %        { \textquotedblleft = {30,30},  \textquotedblright = {30,30},
 %          \textquoteleft    = {30,30},  \textquoteright    = {30,30} }}
   }
-  \newcommand*\My@Set@Quote@Spacing[3][]{}
-  \My@Quote@Spacing
-  \My@Set@Quote@Spacing
+  \newcommand*\Md@Set@Quote@Spacing[3][]{}
+  \Md@Quote@Spacing
+  \Md@Set@Quote@Spacing
     [ unit = 1em ]
     { encoding = {OT1,T1,LGR,U,OT2,T2A,T2B,T2C,T5,X2,LY1},
       family   = {MyriadPro-OsF,MyriadPro-LF,MyriadPro-TOsF,MyriadPro-TLF},
@@ -781,28 +781,28 @@
 %
 % Redefine the standard math versions |normal| and |bold|.
 %    \begin{macrocode}
-\if@My@Math@
-  \DeclareSymbolFont{operators}  {T1} {\My@Math@Family}{m} {n}
-  \DeclareSymbolFont{letters}    {OML}{MyriadPro-TOsF} {m} {\My@Math@LetterShape}
-  \SetSymbolFont{operators}{bold}{T1} {\My@Math@Family}{eb}{n}
-  \SetSymbolFont{letters}  {bold}{OML}{MyriadPro-TOsF} {eb}{\My@Math@LetterShape}
-  \DeclareMathAlphabet\mathbf    {T1} {\My@Math@Family}{eb}{n}
-  \DeclareMathAlphabet\mathit    {T1} {\My@Math@Family}{m} {it}
-  \SetMathAlphabet\mathit  {bold}{T1} {\My@Math@Family}{eb}{it}
+\if@Md@Math@
+  \DeclareSymbolFont{operators}  {T1} {\Md@Math@Family}{m} {n}
+  \DeclareSymbolFont{letters}    {OML}{MyriadPro-TOsF} {m} {\Md@Math@LetterShape}
+  \SetSymbolFont{operators}{bold}{T1} {\Md@Math@Family}{eb}{n}
+  \SetSymbolFont{letters}  {bold}{OML}{MyriadPro-TOsF} {eb}{\Md@Math@LetterShape}
+  \DeclareMathAlphabet\mathbf    {T1} {\Md@Math@Family}{eb}{n}
+  \DeclareMathAlphabet\mathit    {T1} {\Md@Math@Family}{m} {it}
+  \SetMathAlphabet\mathit  {bold}{T1} {\Md@Math@Family}{eb}{it}
 %    \end{macrocode}
 % Extra math versions |tabular| and |boldtabular|, which use tabular figures
 % instead of proportional ones. These math versions can be useful in tables
 % (cf.\ section~\ref{sec:Interferences}).
 %    \begin{macrocode}
   \DeclareMathVersion{tabular}
-  \SetSymbolFont{operators}{tabular}    {T1} {\My@Math@TFamily}{m}{n}
-  \SetSymbolFont{letters}  {tabular}    {OML}{MyriadPro-TOsF}  {m}{\My@Math@LetterShape}
-  \SetMathAlphabet\mathit  {tabular}    {T1} {\My@Math@TFamily}{m}{it}
+  \SetSymbolFont{operators}{tabular}    {T1} {\Md@Math@TFamily}{m}{n}
+  \SetSymbolFont{letters}  {tabular}    {OML}{MyriadPro-TOsF}  {m}{\Md@Math@LetterShape}
+  \SetMathAlphabet\mathit  {tabular}    {T1} {\Md@Math@TFamily}{m}{it}
 
   \DeclareMathVersion{boldtabular}
-  \SetSymbolFont{operators}{boldtabular}{T1} {\My@Math@TFamily}{eb}{n}
-  \SetSymbolFont{letters}  {boldtabular}{OML}{MyriadPro-TOsF}  {eb}{\My@Math@LetterShape}
-  \SetMathAlphabet\mathit  {boldtabular}{T1} {\My@Math@TFamily}{eb}{it}
+  \SetSymbolFont{operators}{boldtabular}{T1} {\Md@Math@TFamily}{eb}{n}
+  \SetSymbolFont{letters}  {boldtabular}{OML}{MyriadPro-TOsF}  {eb}{\Md@Math@LetterShape}
+  \SetMathAlphabet\mathit  {boldtabular}{T1} {\Md@Math@TFamily}{eb}{it}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -819,9 +819,9 @@
 %    \end{macrocode}
 % Execute the hooks set up above to load the various math alphabets.
 %    \begin{macrocode}
-  \My@load@bb
-  \My@load@frak
-  \My@load@cal
+  \Md@load@bb
+  \Md@load@frak
+  \Md@load@cal
 \fi
 %    \end{macrocode}
 %
@@ -850,105 +850,105 @@
 % letters in two lists. (We distinguish them by the first letter of their
 % name.) These lists are then used to select the different versions.
 %    \begin{macrocode}
-\if@My@Math@
-  \newcommand\My@greek@list@upper{}
-  \newcommand\My@greek@list@lower{}
-  \let\My@greek@list@upper\@gobble
-  \let\My@greek@list@lower\@gobble
+\if@Md@Math@
+  \newcommand\Md@greek@list@upper{}
+  \newcommand\Md@greek@list@lower{}
+  \let\Md@greek@list@upper\@gobble
+  \let\Md@greek@list@lower\@gobble
 %    \end{macrocode}
 % This macro holds one of the two list names.
 %    \begin{macrocode}
-  \newcommand\My@greek@list{}
-  \newcommand*\My@greek@letter[3]{%
+  \newcommand\Md@greek@list{}
+  \newcommand*\Md@greek@letter[3]{%
     \expandafter\DeclareMathSymbol
     \expandafter{\csname it#1\endcsname}{\mathord}{letters}{#2}%
     \expandafter\DeclareMathSymbol
     \expandafter{\csname up#1\endcsname}{\mathord}{letters}{#3}%
     \edef\@tempa{`\@car#1\@nil}%
-    \edef\My@greek@list{\expandafter\noexpand\csname
-      My@greek@list@\ifnum\uccode\@tempa=\@tempa upper\else lower\fi\endcsname}%
-    \expandafter\edef\My@greek@list{\My@greek@list,#1}%
+    \edef\Md@greek@list{\expandafter\noexpand\csname
+      Md@greek@list@\ifnum\uccode\@tempa=\@tempa upper\else lower\fi\endcsname}%
+    \expandafter\edef\Md@greek@list{\Md@greek@list,#1}%
   }
 %    \end{macrocode}
 % We can now declare the Greek letters (left italic, right upright).
 %    \begin{macrocode}
-  \My@greek@letter{Gamma}         {'000}{'200}
-  \My@greek@letter{Delta}         {'001}{'201}
-  \My@greek@letter{Theta}         {'002}{'202}
-  \My@greek@letter{Lambda}        {'003}{'203}
-  \My@greek@letter{Xi}            {'004}{'204}
-  \My@greek@letter{Pi}            {'005}{'205}
-  \My@greek@letter{Sigma}         {'006}{'206}
-  \My@greek@letter{Upsilon}       {'007}{'207}
-  \My@greek@letter{Phi}           {'010}{'210}
-  \My@greek@letter{Psi}           {'011}{'211}
-  \My@greek@letter{Omega}         {'012}{'212}
-  \My@greek@letter{alpha}         {'013}{'213}
-  \My@greek@letter{beta}          {'014}{'214}
-  \My@greek@letter{gamma}         {'015}{'215}
-  \My@greek@letter{delta}         {'016}{'216}
-  \My@greek@letter{epsilon}       {'017}{'217}
-  \My@greek@letter{zeta}          {'020}{'220}
-  \My@greek@letter{eta}           {'021}{'221}
-  \My@greek@letter{theta}         {'022}{'222}
-  \My@greek@letter{iota}          {'023}{'223}
-  \My@greek@letter{kappa}         {'024}{'224}
-  \My@greek@letter{lambda}        {'025}{'225}
-  \My@greek@letter{mu}            {'026}{'226}
-  \My@greek@letter{nu}            {'027}{'227}
-  \My@greek@letter{xi}            {'030}{'230}
-  \My@greek@letter{pi}            {'031}{'231}
-  \My@greek@letter{rho}           {'032}{'232}
-  \My@greek@letter{sigma}         {'033}{'233}
-  \My@greek@letter{tau}           {'034}{'234}
-  \My@greek@letter{upsilon}       {'035}{'235}
-  \My@greek@letter{phi}           {'036}{'236}
-  \My@greek@letter{chi}           {'037}{'237}
-  \My@greek@letter{psi}           {'040}{'240}
-  \My@greek@letter{omega}         {'041}{'241}
-  \My@greek@letter{varepsilon}    {'042}{'242}
-  \My@greek@letter{vartheta}      {'043}{'243}
-  \My@greek@letter{varpi}         {'044}{'244}
-  \My@greek@letter{varrho}        {'045}{'245}
-  \My@greek@letter{varsigma}      {'046}{'246}
-  \My@greek@letter{varphi}        {'047}{'247}
+  \Md@greek@letter{Gamma}         {'000}{'200}
+  \Md@greek@letter{Delta}         {'001}{'201}
+  \Md@greek@letter{Theta}         {'002}{'202}
+  \Md@greek@letter{Lambda}        {'003}{'203}
+  \Md@greek@letter{Xi}            {'004}{'204}
+  \Md@greek@letter{Pi}            {'005}{'205}
+  \Md@greek@letter{Sigma}         {'006}{'206}
+  \Md@greek@letter{Upsilon}       {'007}{'207}
+  \Md@greek@letter{Phi}           {'010}{'210}
+  \Md@greek@letter{Psi}           {'011}{'211}
+  \Md@greek@letter{Omega}         {'012}{'212}
+  \Md@greek@letter{alpha}         {'013}{'213}
+  \Md@greek@letter{beta}          {'014}{'214}
+  \Md@greek@letter{gamma}         {'015}{'215}
+  \Md@greek@letter{delta}         {'016}{'216}
+  \Md@greek@letter{epsilon}       {'017}{'217}
+  \Md@greek@letter{zeta}          {'020}{'220}
+  \Md@greek@letter{eta}           {'021}{'221}
+  \Md@greek@letter{theta}         {'022}{'222}
+  \Md@greek@letter{iota}          {'023}{'223}
+  \Md@greek@letter{kappa}         {'024}{'224}
+  \Md@greek@letter{lambda}        {'025}{'225}
+  \Md@greek@letter{mu}            {'026}{'226}
+  \Md@greek@letter{nu}            {'027}{'227}
+  \Md@greek@letter{xi}            {'030}{'230}
+  \Md@greek@letter{pi}            {'031}{'231}
+  \Md@greek@letter{rho}           {'032}{'232}
+  \Md@greek@letter{sigma}         {'033}{'233}
+  \Md@greek@letter{tau}           {'034}{'234}
+  \Md@greek@letter{upsilon}       {'035}{'235}
+  \Md@greek@letter{phi}           {'036}{'236}
+  \Md@greek@letter{chi}           {'037}{'237}
+  \Md@greek@letter{psi}           {'040}{'240}
+  \Md@greek@letter{omega}         {'041}{'241}
+  \Md@greek@letter{varepsilon}    {'042}{'242}
+  \Md@greek@letter{vartheta}      {'043}{'243}
+  \Md@greek@letter{varpi}         {'044}{'244}
+  \Md@greek@letter{varrho}        {'045}{'245}
+  \Md@greek@letter{varsigma}      {'046}{'246}
+  \Md@greek@letter{varphi}        {'047}{'247}
 %    \end{macrocode}
 % Some of the following symbols are not really Greek letters but are treated in
 % the same way.
 %    \begin{macrocode}
-  \My@greek@letter{varbeta}       {'260}{'250}
-  \My@greek@letter{varkappa}      {'261}{'251}
-  \My@greek@letter{backepsilon}   {'262}{'252}
-  \My@greek@letter{varbackepsilon}{'263}{'253}
-  \My@greek@letter{digamma}       {'264}{'254}
-  \My@greek@letter{eth}           {'266}{'256}
+  \Md@greek@letter{varbeta}       {'260}{'250}
+  \Md@greek@letter{varkappa}      {'261}{'251}
+  \Md@greek@letter{backepsilon}   {'262}{'252}
+  \Md@greek@letter{varbackepsilon}{'263}{'253}
+  \Md@greek@letter{digamma}       {'264}{'254}
+  \Md@greek@letter{eth}           {'266}{'256}
 %    \end{macrocode}
 % Go through a list |#2| of Greek letters and |\let| them be their
 % |#1|-prefixed variants.
 %    \begin{macrocode}
-  \newcommand*\My@greek@select[2]{%
-    \expandafter\let\expandafter\My@greek@list\csname My@greek@list@#2\endcsname
-    \@for\@tempa:=\My@greek@list\do{%
+  \newcommand*\Md@greek@select[2]{%
+    \expandafter\let\expandafter\Md@greek@list\csname Md@greek@list@#2\endcsname
+    \@for\@tempa:=\Md@greek@list\do{%
       \expandafter\let\csname\@tempa\expandafter\endcsname
       \csname#1\@tempa\endcsname
     }%
   }
-  \newcommand*\My@greek@Upright{%
-    \My@greek@select{up}{upper}%
-    \My@greek@select{up}{lower}%
+  \newcommand*\Md@greek@Upright{%
+    \Md@greek@select{up}{upper}%
+    \Md@greek@select{up}{lower}%
   }
-  \newcommand*\My@greek@Italic{%
-    \My@greek@select{it}{upper}%
-    \My@greek@select{it}{lower}%
+  \newcommand*\Md@greek@Italic{%
+    \Md@greek@select{it}{upper}%
+    \Md@greek@select{it}{lower}%
   }
-  \newcommand*\My@greek@Mixed{%
-    \My@greek@select{up}{upper}%
-    \My@greek@select{it}{lower}%
+  \newcommand*\Md@greek@Mixed{%
+    \Md@greek@select{up}{upper}%
+    \Md@greek@select{it}{lower}%
   }
 %    \end{macrocode}
 % Finally initialise the Greek letters.
 %    \begin{macrocode}
-  \My@load@greek
+  \Md@load@greek
 \fi
 %    \end{macrocode}
 %
@@ -1082,13 +1082,13 @@
   \fi
   #2\@@#3{#4}}
 %
-\newcommand*\My@extra@font{%
+\newcommand*\Md@extra@font{%
   \fontencoding{U}\fontfamily{MyriadPro-Extra}\selectfont}
-\newcommand*\My@numerator@fig[1]{{\My@extra@font\My@@numerator@fig{#1}}}
-\newcommand*\My@denominator@fig[1]{{\My@extra@font\My@@denominator@fig{#1}}}
-\newcommand*\My@superior@fig[1]{{\My@extra@font\My@@superior@fig{#1}}}
-\newcommand*\My@inferior@fig[1]{{\My@extra@font\My@@inferior@fig{#1}}}
-\newcommand*\My@@numerator@fig[1]{%
+\newcommand*\Md@numerator@fig[1]{{\Md@extra@font\Md@@numerator@fig{#1}}}
+\newcommand*\Md@denominator@fig[1]{{\Md@extra@font\Md@@denominator@fig{#1}}}
+\newcommand*\Md@superior@fig[1]{{\Md@extra@font\Md@@superior@fig{#1}}}
+\newcommand*\Md@inferior@fig[1]{{\Md@extra@font\Md@@inferior@fig{#1}}}
+\newcommand*\Md@@numerator@fig[1]{%
   \@for@tok\@nf@fig:=#1\do{%
     \ifcase\@nf@fig
        \char'00%
@@ -1102,10 +1102,10 @@
     \or\char'10%
     \or\char'11%
     \else
-      \@latex@error{invalid argument to \string\My@@numerator@fig}%
+      \@latex@error{invalid argument to \string\Md@@numerator@fig}%
     \fi
     }}
-\newcommand*\My@@denominator@fig[1]{%
+\newcommand*\Md@@denominator@fig[1]{%
   \@for@tok\@nf@fig:=#1\do{%
     \ifcase\@nf@fig
        \char'20%
@@ -1119,10 +1119,10 @@
     \or\char'30%
     \or\char'31%
     \else
-      \@latex@error{invalid argument to \string\My@@denominator@fig}%
+      \@latex@error{invalid argument to \string\Md@@denominator@fig}%
     \fi
     }}
-\newcommand*\My@@superior@fig[1]{%
+\newcommand*\Md@@superior@fig[1]{%
   \@for@tok\@nf@fig:=#1\do{%
     \ifcase\@nf@fig
        \char'60%
@@ -1136,10 +1136,10 @@
     \or\char'70%
     \or\char'71%
     \else
-      \@latex@error{invalid argument to \string\My@@superior@fig}%
+      \@latex@error{invalid argument to \string\Md@@superior@fig}%
     \fi
     }}
-\newcommand*\My@@inferior@fig[1]{%
+\newcommand*\Md@@inferior@fig[1]{%
   \@for@tok\@nf@fig:=#1\do{%
     \ifcase\@nf@fig
        \char'100%
@@ -1153,22 +1153,22 @@
     \or\char'110%
     \or\char'111%
     \else
-      \@latex@error{invalid argument to \string\My@@inferior@fig}%
+      \@latex@error{invalid argument to \string\Md@@inferior@fig}%
     \fi
     }}
 %    \end{macrocode}
-% |\Myensure@text| switches to text mode, if necessary.
+% |\Mdensure@text| switches to text mode, if necessary.
 %    \begin{macrocode}
-\newcommand*\Myensure@text[1]{%
+\newcommand*\Mdensure@text[1]{%
   \ifmmode
-    \My@Text@With@MathVersion{#1}%
+    \Md@Text@With@MathVersion{#1}%
   \else
     #1%
   \fi}
 %    \end{macrocode}
 % |\smallfrac| and |\slantfrac| assemble numerical fractions.
 %    \begin{macrocode}
-\newcommand*\My@smallfrac[2]{%
+\newcommand*\Md@smallfrac[2]{%
   \leavevmode
   \setbox\@tempboxa
     \vbox{%
@@ -1176,24 +1176,24 @@
       \lineskip.25ex%
       \lineskiplimit-\maxdimen
       \ialign{\hfil##\hfil\crcr
-              \vbox to 2.13ex{\vss\hbox{\My@numerator@fig{#1}}\vskip.68ex}\crcr
+              \vbox to 2.13ex{\vss\hbox{\Md@numerator@fig{#1}}\vskip.68ex}\crcr
               \leavevmode\leaders\hrule height 1.1ex depth -1.01ex\hfill\crcr
-              \vtop to 1ex{\vbox{}\hbox{\My@denominator@fig{#2}}\vss}\crcr
+              \vtop to 1ex{\vbox{}\hbox{\Md@denominator@fig{#2}}\vss}\crcr
               \noalign{\vskip-1.47ex}}}%
   \dp\@tempboxa=0.49ex%
   \box\@tempboxa}
-\newcommand*\My@slantfrac[2]{%
-  {\My@extra@font\My@@numerator@fig{#1}\kern-0.05em/\kern-0.06em\My@@denominator@fig{#2}}}
-\DeclareRobustCommand*\smallfrac[2]{\Myensure@text{\kern0.06em\My@smallfrac{#1}{#2}\kern0.09em}}
-\DeclareRobustCommand*\slantfrac[2]{\Myensure@text{\kern0.06em\My@slantfrac{#1}{#2}\kern0.09em}}
+\newcommand*\Md@slantfrac[2]{%
+  {\Md@extra@font\Md@@numerator@fig{#1}\kern-0.05em/\kern-0.06em\Md@@denominator@fig{#2}}}
+\DeclareRobustCommand*\smallfrac[2]{\Mdensure@text{\kern0.06em\Md@smallfrac{#1}{#2}\kern0.09em}}
+\DeclareRobustCommand*\slantfrac[2]{\Mdensure@text{\kern0.06em\Md@slantfrac{#1}{#2}\kern0.09em}}
 %    \end{macrocode}
 %
 % \subsection{Additional symbols}
 %
-% Some symbols missing from MySymbol can be taken from MyriadPro.
+% Some symbols missing from MdSymbol can be taken from MyriadPro.
 %
 %    \begin{macrocode}
-\if@My@Math@
+\if@Md@Math@
   \let\hbar\undefined
   \DeclareMathSymbol{\hbar}             {\mathord}{letters}{'265}
   \DeclareMathSymbol{\uphbar}           {\mathord}{letters}{'255}
@@ -1212,7 +1212,7 @@
 %    \end{macrocode}
 % Archaic Greek letters not provided by MyriadPro.
 %    \begin{macrocode}
-\if@My@Text@
+\if@Md@Text@
   %\def\Qoppa{\reflectbox{P}}
   %\def\Sampi{\begingroup\fontfamily{cmr}\fontencoding{LGR}\selectfont\char23\endgroup}
   \let\Stigma\stigma
@@ -1238,38 +1238,38 @@
 %
 % \subsection{Integral symbols}
 %
-% We can also replace the integral signs from MySymbol by those of MyriadPro.
+% We can also replace the integral signs from MdSymbol by those of MyriadPro.
 % The following definitions provide this as an option.
 %    \begin{macrocode}
-\if@My@Math@
-  \newcommand\My@Decl@Myriad@Ints{%
+\if@Md@Math@
+  \newcommand\Md@Decl@Myriad@Ints{%
 %    \end{macrocode}
-% Replace |MySymbolF| by |MySymbolFI|.
+% Replace |MdSymbolF| by |MdSymbolFI|.
 %    \begin{macrocode}
-    \DeclareFontFamily{U}{MySymbolFI}{}
-    \DeclareFontShape{U}{MySymbolFI}{m}{it}{
-        <-6>  MySymbolFI\My@myriadint@opticals5
-       <6-7>  MySymbolFI\My@myriadint@opticals6
-       <7-8>  MySymbolFI\My@myriadint@opticals7
-       <8-9>  MySymbolFI\My@myriadint@opticals8
-       <9-10> MySymbolFI\My@myriadint@opticals9
-      <10-12> MySymbolFI\My@myriadint@opticals10
-      <12->   MySymbolFI\My@myriadint@opticals12
+    \DeclareFontFamily{U}{MdSymbolFI}{}
+    \DeclareFontShape{U}{MdSymbolFI}{m}{it}{
+        <-6>  MdSymbolFI\Md@myriadint@opticals5
+       <6-7>  MdSymbolFI\Md@myriadint@opticals6
+       <7-8>  MdSymbolFI\Md@myriadint@opticals7
+       <8-9>  MdSymbolFI\Md@myriadint@opticals8
+       <9-10> MdSymbolFI\Md@myriadint@opticals9
+      <10-12> MdSymbolFI\Md@myriadint@opticals10
+      <12->   MdSymbolFI\Md@myriadint@opticals12
     }{}
-    \DeclareFontShape{U}{MySymbolFI}{b}{it}{
-        <-6>  MySymbolFI\My@myriadint@bold\My@myriadint@opticals5
-       <6-7>  MySymbolFI\My@myriadint@bold\My@myriadint@opticals6
-       <7-8>  MySymbolFI\My@myriadint@bold\My@myriadint@opticals7
-       <8-9>  MySymbolFI\My@myriadint@bold\My@myriadint@opticals8
-       <9-10> MySymbolFI\My@myriadint@bold\My@myriadint@opticals9
-      <10-12> MySymbolFI\My@myriadint@bold\My@myriadint@opticals10
-      <12->   MySymbolFI\My@myriadint@bold\My@myriadint@opticals12
+    \DeclareFontShape{U}{MdSymbolFI}{b}{it}{
+        <-6>  MdSymbolFI\Md@myriadint@bold\Md@myriadint@opticals5
+       <6-7>  MdSymbolFI\Md@myriadint@bold\Md@myriadint@opticals6
+       <7-8>  MdSymbolFI\Md@myriadint@bold\Md@myriadint@opticals7
+       <8-9>  MdSymbolFI\Md@myriadint@bold\Md@myriadint@opticals8
+       <9-10> MdSymbolFI\Md@myriadint@bold\Md@myriadint@opticals9
+      <10-12> MdSymbolFI\Md@myriadint@bold\Md@myriadint@opticals10
+      <12->   MdSymbolFI\Md@myriadint@bold\Md@myriadint@opticals12
     }{}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-    \DeclareSymbolFont{symbols}  {U}{MySymbolFI}{m}{it}
-    \SetSymbolFont{symbols}{bold}{U}{MySymbolFI}{b}{it}
+    \DeclareSymbolFont{symbols}  {U}{MdSymbolFI}{m}{it}
+    \SetSymbolFont{symbols}{bold}{U}{MdSymbolFI}{b}{it}
 %    \end{macrocode}
 % Make the original integral symbols available as |\var|\dots.
 %    \begin{macrocode}
@@ -1312,7 +1312,7 @@
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-  \My@load@integrals
+  \Md@load@integrals
 \fi
 %    \end{macrocode}
 %
@@ -1321,8 +1321,8 @@
 % We can replace the closed~$g$ with the open variant~$\openg$.
 % The following definitions provide this as an option.
 %    \begin{macrocode}
-\if@My@Math@
-  \My@Define@Open@g
+\if@Md@Math@
+  \Md@Define@Open@g
 \fi
 %    \end{macrocode}
 %
@@ -1330,7 +1330,7 @@
 %
 % Correct logos.
 %    \begin{macrocode}
-\if@My@Text@
+\if@Md@Text@
   \def\TeX{T\kern-.1667em\lower.4ex\hbox{E}\kern-.125emX\@}
   \DeclareRobustCommand{\LaTeX}{L\kern-.32em%
           {\sbox\z@ T%
@@ -1373,7 +1373,7 @@
 %    \end{macrocode}
 % Make the changes take effect. This concludes the main style file.
 %    \begin{macrocode}
-\if@My@Text@
+\if@Md@Text@
   \normalfont
 \fi
 %</style>
@@ -1582,10 +1582,10 @@
 % \makeatletter
 % \newcommand*\exampleconfig[2]{%
 %   \begin{quote}\ttfamily
-%   \expandafter\string\csname My@config@#1@#2\endcsname\par
+%   \expandafter\string\csname Md@config@#1@#2\endcsname\par
 %   \expandafter\expandafter\expandafter\strip@prefix
-%   \expandafter\meaning\csname My@config@#1@#2\endcsname\par
-%   \edef\@tempa{\My@UseConfig{#1}{#2}}%
+%   \expandafter\meaning\csname Md@config@#1@#2\endcsname\par
+%   \edef\@tempa{\Md@UseConfig{#1}{#2}}%
 %   \expandafter\strip@prefix\meaning\@tempa
 %   \end{quote}%
 % }%
@@ -1599,7 +1599,7 @@
 % multiple times.
 %    \begin{macrocode}
 %<*fontdef>
-\ifx\My@DeclareFontShape\@undefined\else\endinput\fi
+\ifx\Md@DeclareFontShape\@undefined\else\endinput\fi
 %    \end{macrocode}
 % We distinguish between being loaded directly or via |\usepackage| in the
 % preamble by checking |\@nodocument|.
@@ -1621,25 +1621,25 @@
 %    \end{macrocode}
 % These are the default values if it is impossible to process options.
 %    \begin{macrocode}
-\newcommand\My@option@opticals{noopticals}
-\newcommand\My@option@fontset{smallfamily}
-\newdimen\My@option@normalsize
-\global\My@option@normalsize10pt
+\newcommand\Md@option@opticals{noopticals}
+\newcommand\Md@option@fontset{smallfamily}
+\newdimen\Md@option@normalsize
+\global\Md@option@normalsize10pt
 %    \end{macrocode}
 % Whether we should adapt the configuration to the |\normalsize| of the
 % document. This switch is only needed locally.
 %    \begin{macrocode}
-\newif\ifMy@option@normalsize
-\My@option@normalsizetrue
+\newif\ifMd@option@normalsize
+\Md@option@normalsizetrue
 %    \end{macrocode}
 %
 %    \begin{macrocode}
 \ifx\@nodocument\relax\else
-  \DeclareOption{noopticals} {\let\My@option@opticals\CurrentOption}
-  \DeclareOption{smallfamily}{\let\My@option@fontset\CurrentOption}
-  \DeclareOption{medfamily}  {\let\My@option@fontset\CurrentOption}
-%  \DeclareOption{fullfamily} {\let\My@option@fontset\CurrentOption}
-  \DeclareOption{normalsize}  {\My@option@normalsizetrue}
+  \DeclareOption{noopticals} {\let\Md@option@opticals\CurrentOption}
+  \DeclareOption{smallfamily}{\let\Md@option@fontset\CurrentOption}
+  \DeclareOption{medfamily}  {\let\Md@option@fontset\CurrentOption}
+%  \DeclareOption{fullfamily} {\let\Md@option@fontset\CurrentOption}
+  \DeclareOption{normalsize}  {\Md@option@normalsizetrue}
   \ExecuteOptions{smallfamily,noopticals,normalsize}
   \ProcessOptions\relax
 \fi
@@ -1647,10 +1647,10 @@
 % The method to determine the main font size is inspired by \pkg{microtype}'s
 % implementation.
 %    \begin{macrocode}
-\ifMy@option@normalsize
+\ifMd@option@normalsize
   \begingroup
   \def\set@fontsize#1#2#3#4\@nil{%
-    \@defaultunits\global\My@option@normalsize#2pt\relax\@nnil}%
+    \@defaultunits\global\Md@option@normalsize#2pt\relax\@nnil}%
   \normalsize\@nil
   \endgroup
 \fi
@@ -1658,21 +1658,21 @@
 % We use |\otf@makeglobal| from \pkg{otfontdef} to ``export'' the definitions
 % that are needed globally.
 %    \begin{macrocode}
-\otf@makeglobal{My@option@opticals}
-\otf@makeglobal{My@option@fontset}
+\otf@makeglobal{Md@option@opticals}
+\otf@makeglobal{Md@option@fontset}
 \ifx\@nodocument\relax\else
   \PackageInfo{MyriadPro-FontDef}{%
-    Configuration:\space\My@option@fontset,\space\My@option@opticals,\space
-    normalsize=\the\My@option@normalsize}%
+    Configuration:\space\Md@option@fontset,\space\Md@option@opticals,\space
+    normalsize=\the\Md@option@normalsize}%
 \fi
 %    \end{macrocode}
 %
 % \subsubsection{Configuration database}
 %
 %    \begin{macrocode}
-\newcount\My@config@cnt
-\My@config@cnt=0
-\newcommand\My@curr@config{My@config@\romannumeral\My@config@cnt}
+\newcount\Md@config@cnt
+\Md@config@cnt=0
+\newcommand\Md@curr@config{Md@config@\romannumeral\Md@config@cnt}
 %    \end{macrocode}
 % These commands help in setting up the configuration database. They do not
 % need to be global. But the config database itself has to be.
@@ -1680,30 +1680,30 @@
 % |#3| is added to all instances listed in |#2| of configuration class |#1|.
 % |#3| is read with \acro{NFSS} catcodes.
 %    \begin{macrocode}
-\newcommand\My@AddToConfig{%
+\newcommand\Md@AddToConfig{%
   \begingroup
   \nfss@catcodes
   \expandafter\endgroup
-  \My@AddToConfig@
+  \Md@AddToConfig@
 }
-\newcommand\My@AddToConfig@[3]{%
-  \advance\My@config@cnt\@ne
-  \@namedef{\My@curr@config}{#3}%
-  \otf@makeglobal{\My@curr@config}
-%<debug&show>\expandafter\show\csname\My@curr@config\endcsname
-  \@for\My@tempa:=#2\do{%
-    \@ifundefined{My@config@#1@\My@tempa}{%
+\newcommand\Md@AddToConfig@[3]{%
+  \advance\Md@config@cnt\@ne
+  \@namedef{\Md@curr@config}{#3}%
+  \otf@makeglobal{\Md@curr@config}
+%<debug&show>\expandafter\show\csname\Md@curr@config\endcsname
+  \@for\Md@tempa:=#2\do{%
+    \@ifundefined{Md@config@#1@\Md@tempa}{%
       \@temptokena{}%
     }{%
       \@temptokena\expandafter\expandafter\expandafter
-        {\csname My@config@#1@\My@tempa\endcsname}%
+        {\csname Md@config@#1@\Md@tempa\endcsname}%
     }%
-    \@expandtwoargs\@namedef{My@config@#1@\My@tempa}{%
+    \@expandtwoargs\@namedef{Md@config@#1@\Md@tempa}{%
       \the\@temptokena
-      \expandafter\noexpand\csname\My@curr@config\endcsname
+      \expandafter\noexpand\csname\Md@curr@config\endcsname
     }%
-    \otf@makeglobal{My@config@#1@\My@tempa}% perhaps defer to only execute once
-%<debug&show>\expandafter\show\csname My@config@#1@\My@tempa\endcsname
+    \otf@makeglobal{Md@config@#1@\Md@tempa}% perhaps defer to only execute once
+%<debug&show>\expandafter\show\csname Md@config@#1@\Md@tempa\endcsname
   }%
 }
 %    \end{macrocode}
@@ -1712,21 +1712,21 @@
 % the previously built configuration database. They must be expandable. |#3| is
 % used as a default if no entry is found in the database.
 %    \begin{macrocode}
-\newcommand*\My@UseConfig[2]{%
-  \My@UseConfigOrDefault{#1}{#2}{}%
+\newcommand*\Md@UseConfig[2]{%
+  \Md@UseConfigOrDefault{#1}{#2}{}%
 }
-\newcommand*\My@UseConfigOrDefault[3]{%
-  \@ifundefined{My@config@#1@#2}{#3}%
-    {\@nameuse{My@config@#1@#2}}%
+\newcommand*\Md@UseConfigOrDefault[3]{%
+  \@ifundefined{Md@config@#1@#2}{#3}%
+    {\@nameuse{Md@config@#1@#2}}%
 }
-\newcommand*\My@TheConfig[2]{%
-  \@ifundefined{My@config@#1@#2}{}{%
-    \expandafter\noexpand\csname My@config@#1@#2\endcsname
+\newcommand*\Md@TheConfig[2]{%
+  \@ifundefined{Md@config@#1@#2}{}{%
+    \expandafter\noexpand\csname Md@config@#1@#2\endcsname
   }%
 }
-\otf@makeglobal{My@UseConfig}
-\otf@makeglobal{My@UseConfigOrDefault}
-\otf@makeglobal{My@TheConfig}
+\otf@makeglobal{Md@UseConfig}
+\otf@makeglobal{Md@UseConfigOrDefault}
+\otf@makeglobal{Md@TheConfig}
 %    \end{macrocode}
 % The size range in the configuration has to be divided by the scaling
 % factor to take the changed size into account because the scaling
@@ -1735,114 +1735,114 @@
 %    \begin{macrocode}
 \RequirePackage{fltpoint}
 \fpDecimalSign{.}
-\newcommand*{\My@calc@bsize}[2]{\fpDiv{#1}{#2}{\My@scaled}}
+\newcommand*{\Md@calc@bsize}[2]{\fpDiv{#1}{#2}{\Md@scaled}}
 %    \end{macrocode}
 % Here comes the configuration.
 %    \begin{macrocode}
-\My@calc@bsize{\My@s@capt}{8.5}
-\My@calc@bsize{\My@s@text}{13.1}
-\My@calc@bsize{\My@s@subh}{20}
-\My@AddToConfig{opticals}{opticals}{
-            <-\My@s@capt>  otf* [optical=Capt]
-  <\My@s@capt-\My@s@text>  otf* [optical=Text]
-  <\My@s@text-\My@s@subh>  otf* [optical=Subh]
-  <\My@s@subh->            otf* [optical=Disp]
+\Md@calc@bsize{\Md@s@capt}{8.5}
+\Md@calc@bsize{\Md@s@text}{13.1}
+\Md@calc@bsize{\Md@s@subh}{20}
+\Md@AddToConfig{opticals}{opticals}{
+            <-\Md@s@capt>  otf* [optical=Capt]
+  <\Md@s@capt-\Md@s@text>  otf* [optical=Text]
+  <\Md@s@text-\Md@s@subh>  otf* [optical=Subh]
+  <\Md@s@subh->            otf* [optical=Disp]
 }
-\My@AddToConfig{opticals}{noopticals}{
+\Md@AddToConfig{opticals}{noopticals}{
       <->     otf* [optical=Text]
 }
-\My@AddToConfig{opticals}{slides}{
+\Md@AddToConfig{opticals}{slides}{
       <->     otf* [optical=Capt]
 }
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\My@calc@bsize{\My@s@semim}{6}
-\My@AddToConfig{fontset/weight}{medfamily/m}{
-             <-\My@s@semim> otf* [weight=Semibold]
-  <\My@s@semim->            otf* [weight=Regular]
+\Md@calc@bsize{\Md@s@semim}{6}
+\Md@AddToConfig{fontset/weight}{medfamily/m}{
+             <-\Md@s@semim> otf* [weight=Semibold]
+  <\Md@s@semim->            otf* [weight=Regular]
 }
-\My@AddToConfig{fontset/weight}{smallfamily/m}{
+\Md@AddToConfig{fontset/weight}{smallfamily/m}{
       <->     otf* [weight=Regular]
 }
 %
-\My@calc@bsize{\My@s@bold}{6}
-\My@AddToConfig{fontset/weight}{fullfamily/b,medfamily/b}{
-            <-\My@s@bold>  otf* [weight=Bold]
-  <\My@s@bold->            otf* [weight=Semibold]
+\Md@calc@bsize{\Md@s@bold}{6}
+\Md@AddToConfig{fontset/weight}{fullfamily/b,medfamily/b}{
+            <-\Md@s@bold>  otf* [weight=Bold]
+  <\Md@s@bold->            otf* [weight=Semibold]
 }
-\My@AddToConfig{fontset/weight}{smallfamily/b}{
+\Md@AddToConfig{fontset/weight}{smallfamily/b}{
       <->     otf* [weight=Bold]
 }
 %
-\My@AddToConfig{weight}{eb}{
+\Md@AddToConfig{weight}{eb}{
       <->     otf* [weight=Bold]
 }
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\My@calc@bsize{\My@s@spac}{8}
-\My@AddToConfig{shape}{n,it}{
-      <-\My@s@spac>    otf* [spacing=l1]
+\Md@calc@bsize{\Md@s@spac}{8}
+\Md@AddToConfig{shape}{n,it}{
+      <-\Md@s@spac>    otf* [spacing=l1]
 }
-\My@AddToConfig{encoding/shape}{U/n,U/it}{
+\Md@AddToConfig{encoding/shape}{U/n,U/it}{
       <->     otf* [spacing=]
 }
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\My@AddToConfig{shape}{it}{
+\Md@AddToConfig{shape}{it}{
       <->     otf* MyriadPro-It
 }
-\My@AddToConfig{shape}{n}{
+\Md@AddToConfig{shape}{n}{
       <->     otf* MyriadPro
 }
-\My@AddToConfig{encoding/shape}{OML/it}{
+\Md@AddToConfig{encoding/shape}{OML/it}{
       <->     otf* [figures=] MyriadPro-Mixed
 }
-\My@AddToConfig{encoding/shape}{OML/n}{
+\Md@AddToConfig{encoding/shape}{OML/n}{
       <->     otf* [figures=] MyriadPro-French
 }
-\My@AddToConfig{scale}{scale}{
-      <->     otf* [scale=\My@scaled]
+\Md@AddToConfig{scale}{scale}{
+      <->     otf* [scale=\Md@scaled]
 }
 %    \end{macrocode}
 % Substitutions
 %    \begin{macrocode}
-\My@AddToConfig{sub:series} {sb}    {b}
-\My@AddToConfig{sub:series} {bx}    {b}
-\My@AddToConfig{sub:shape}  {sl}    {it}
+\Md@AddToConfig{sub:series} {sb}    {b}
+\Md@AddToConfig{sub:series} {bx}    {b}
+\Md@AddToConfig{sub:shape}  {sl}    {it}
 %    \end{macrocode}
 % Code for the last argument of |\DeclareFontShape|
 %
 % \subsubsection{Declaration of font families and shapes}
 %
 %    \begin{macrocode}
-\newcommand*\My@DeclareFontShape[6][]{%
+\newcommand*\Md@DeclareFontShape[6][]{%
 %    \end{macrocode}
 % Check if any substitutions are specified.
 %    \begin{macrocode}
   \edef\@tempa{%
-    \My@UseConfig{sub:series}{#4}%
-    \My@UseConfigOrDefault{sub:encoding/shape}{#2/#5}{%
-      \My@UseConfig{sub:shape}{#5}}%
+    \Md@UseConfig{sub:series}{#4}%
+    \Md@UseConfigOrDefault{sub:encoding/shape}{#2/#5}{%
+      \Md@UseConfig{sub:shape}{#5}}%
   }%
   \ifx\@tempa\@empty
 %    \end{macrocode}
 % Collect the configuration and declare the font shape. |\DeclareFontShape|
-% fully expands its fifth argument (with our macros |\My@UseConfig| in it), but
+% fully expands its fifth argument (with our macros |\Md@UseConfig| in it), but
 % we have to retrieve the code for the sixth argument ourselves.
 %    \begin{macrocode}
     \@temptokena={%
       \DeclareFontShape{#2}{#3-#6}{#4}{#5}{%
-        \My@UseConfig{opticals}      {\My@option@opticals}%
-        \My@UseConfig{fontset/weight}{\My@option@fontset/#4}%
-        \My@UseConfig{weight}        {#4}%
-        \My@UseConfig{encoding/shape}{#2/#5}%
-        \My@UseConfig{shape}         {#5}%
-        \My@UseConfig{scale}         {scale}%
+        \Md@UseConfig{opticals}      {\Md@option@opticals}%
+        \Md@UseConfig{fontset/weight}{\Md@option@fontset/#4}%
+        \Md@UseConfig{weight}        {#4}%
+        \Md@UseConfig{encoding/shape}{#2/#5}%
+        \Md@UseConfig{shape}         {#5}%
+        \Md@UseConfig{scale}         {scale}%
       }}%
-    \edef\@tempa{\the\@temptokena{\My@TheConfig{code:shape}{#5}}}%
+    \edef\@tempa{\the\@temptokena{\Md@TheConfig{code:shape}{#5}}}%
     \@tempa
   \else
 %    \end{macrocode}
@@ -1850,77 +1850,77 @@
 %    \begin{macrocode}
     \DeclareFontShape{#2}{#3-#6}{#4}{#5}{%
       <->ssub*#3-#6%
-      /\My@UseConfigOrDefault{sub:series}{#4}{#4}%
-      /\My@UseConfigOrDefault{sub:encoding/shape}{#2/#5}{%
-        \My@UseConfigOrDefault{sub:shape}{#5}{#5}}%
+      /\Md@UseConfigOrDefault{sub:series}{#4}{#4}%
+      /\Md@UseConfigOrDefault{sub:encoding/shape}{#2/#5}{%
+        \Md@UseConfigOrDefault{sub:shape}{#5}{#5}}%
     }{}%
   \fi
 }
-\otf@makeglobal{My@DeclareFontShape}
-\otf@makeglobal{\string\My@DeclareFontShape}
+\otf@makeglobal{Md@DeclareFontShape}
+\otf@makeglobal{\string\Md@DeclareFontShape}
 %    \end{macrocode}
 % |#2| contains the encoding, |#3| the family, and |#1| a list of figure
 % versions (or |Extra|).
 %    \begin{macrocode}
-\newcommand*\My@DeclareLargeFontFamily[3][LF,OsF,TLF,TOsF]{%
-  \My@DeclareFontFamily{#1}{#2}{#3}
+\newcommand*\Md@DeclareLargeFontFamily[3][LF,OsF,TLF,TOsF]{%
+  \Md@DeclareFontFamily{#1}{#2}{#3}
     {m,sb,b,bx,eb} {n,it,sl}%
 }
-\newcommand*\My@DeclareSmallFontFamily[3][LF,OsF,TLF,TOsF]{%
-  \My@DeclareFontFamily{#1}{#2}{#3}
+\newcommand*\Md@DeclareSmallFontFamily[3][LF,OsF,TLF,TOsF]{%
+  \Md@DeclareFontFamily{#1}{#2}{#3}
     {m,sb,b,bx,eb} {n,it,sl}%
 }
-\newcommand*\My@DeclareMathFontFamily[3][TOsF]{%
-  \My@DeclareFontFamily[\skewchar\font=255]{#1}{#2}{#3}
+\newcommand*\Md@DeclareMathFontFamily[3][TOsF]{%
+  \Md@DeclareFontFamily[\skewchar\font=255]{#1}{#2}{#3}
     {m,sb,b,bx,eb} {n,it}%
 }
 %    \end{macrocode}
 % An additional macro |\csname\string\foo\endcsname| is generated by
 % |\newcommand| for processing an optional argument of |\foo|.
 %    \begin{macrocode}
-\otf@makeglobal{My@DeclareLargeFontFamily}
-\otf@makeglobal{\string\My@DeclareLargeFontFamily}
-\otf@makeglobal{My@DeclareSmallFontFamily}
-\otf@makeglobal{\string\My@DeclareSmallFontFamily}
-\otf@makeglobal{My@DeclareMathFontFamily}
-\otf@makeglobal{\string\My@DeclareMathFontFamily}
+\otf@makeglobal{Md@DeclareLargeFontFamily}
+\otf@makeglobal{\string\Md@DeclareLargeFontFamily}
+\otf@makeglobal{Md@DeclareSmallFontFamily}
+\otf@makeglobal{\string\Md@DeclareSmallFontFamily}
+\otf@makeglobal{Md@DeclareMathFontFamily}
+\otf@makeglobal{\string\Md@DeclareMathFontFamily}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\newcommand*\My@DeclareFontFamily[6][]{%
-  \@for\My@variant:=#2\do{%
-    \DeclareFontFamily {#3}{#4-\My@variant}{#1}%
+\newcommand*\Md@DeclareFontFamily[6][]{%
+  \@for\Md@variant:=#2\do{%
+    \DeclareFontFamily {#3}{#4-\Md@variant}{#1}%
   }%
-  \My@DeclareFontShapes{#3}{#4}
+  \Md@DeclareFontShapes{#3}{#4}
     {#5} {#6} {#2}%
 }
-\otf@makeglobal{My@DeclareFontFamily}
-\otf@makeglobal{\string\My@DeclareFontFamily}
+\otf@makeglobal{Md@DeclareFontFamily}
+\otf@makeglobal{\string\Md@DeclareFontFamily}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
-\newcommand*\My@DeclareFontShapes[5]{%
-  \@for\My@series:=#3\do{%
-    \@for\My@shape:=#4\do{%
-      \@for\My@variant:=#5\do{%
-        \My@DeclareFontShape{#1}{#2}{\My@series}{\My@shape}{\My@variant}%
+\newcommand*\Md@DeclareFontShapes[5]{%
+  \@for\Md@series:=#3\do{%
+    \@for\Md@shape:=#4\do{%
+      \@for\Md@variant:=#5\do{%
+        \Md@DeclareFontShape{#1}{#2}{\Md@series}{\Md@shape}{\Md@variant}%
       }%
     }%
   }%
 }
-\otf@makeglobal{My@DeclareFontShapes}
+\otf@makeglobal{Md@DeclareFontShapes}
 %    \end{macrocode}
 % Adjust font dimension |#1| of the current font. The function in |#2| should
-% replace the old value in dimen |\My@fontdimen| with a new one (which may
+% replace the old value in dimen |\Md@fontdimen| with a new one (which may
 % depend on other parameters like |\f@size|).
 %    \begin{macrocode}
-\newdimen\My@fontdimen
-\newcommand*\My@adjust@fontdimen[2]{%
-  \My@fontdimen=\fontdimen#1\font
+\newdimen\Md@fontdimen
+\newcommand*\Md@adjust@fontdimen[2]{%
+  \Md@fontdimen=\fontdimen#1\font
   #2%
-  \fontdimen#1\font=\My@fontdimen
+  \fontdimen#1\font=\Md@fontdimen
 }
-\otf@makeglobal{My@adjust@fontdimen}
+\otf@makeglobal{Md@adjust@fontdimen}
 %    \end{macrocode}
 %
 %    \begin{macrocode}
@@ -1959,18 +1959,18 @@
 % has not been loaded yet (which should be the case); otherwise we can
 % execute the alias definitions directly.
 %    \begin{macrocode}
-\gdef\My@MicroType@Aliases{%
+\gdef\Md@MicroType@Aliases{%
   \DeclareMicrotypeAlias{MyriadPro-LF}{MyriadPro}%
   \DeclareMicrotypeAlias{MyriadPro-OsF}{MyriadPro}%
   \DeclareMicrotypeAlias{MyriadPro-TLF}{MyriadPro}%
   \DeclareMicrotypeAlias{MyriadPro-TOsF}{MyriadPro}%
 }
 \@ifundefined{Microtype@Hook}{%
-  \global\let\Microtype@Hook\My@MicroType@Aliases
+  \global\let\Microtype@Hook\Md@MicroType@Aliases
 }{%
-  \g@addto@macro\Microtype@Hook{\My@MicroType@Aliases}%
+  \g@addto@macro\Microtype@Hook{\Md@MicroType@Aliases}%
 }%
-\@ifundefined{DeclareMicroTypeAlias}{}{\My@MicroType@Aliases}%
+\@ifundefined{DeclareMicroTypeAlias}{}{\Md@MicroType@Aliases}%
 %</fontdef>
 %    \end{macrocode}
 %
@@ -1979,27 +1979,27 @@
 %    \begin{macrocode}
 %<*fd>
 \input{MyriadPro-FontDef.sty}%
-%<Uextra>    \My@DeclareSmallFontFamily[Extra]{U}  {MyriadPro}
-%<LGR>       \My@DeclareSmallFontFamily       {LGR}{MyriadPro}
-%<LGI>       \My@DeclareSmallFontFamily       {LGI}{MyriadPro}
-%<OT1>       \My@DeclareLargeFontFamily       {OT1}{MyriadPro}
-%<T1>        \My@DeclareLargeFontFamily       {T1} {MyriadPro}
-%<LY1>       \My@DeclareLargeFontFamily       {LY1}{MyriadPro}
-%<T5>        \My@DeclareLargeFontFamily       {T5} {MyriadPro}
-%<T2A>       \My@DeclareSmallFontFamily       {T2A}{MyriadPro}
-%<T2B>       \My@DeclareSmallFontFamily       {T2B}{MyriadPro}
-%<T2C>       \My@DeclareSmallFontFamily       {T2C}{MyriadPro}
-%<TS1>       \My@DeclareLargeFontFamily       {TS1}{MyriadPro}
-%<X2>        \My@DeclareSmallFontFamily       {X2} {MyriadPro}
-%<OT2>       \My@DeclareSmallFontFamily       {OT2}{MyriadPro}
-%<OML&tosf>  \My@DeclareMathFontFamily        {OML}{MyriadPro}
+%<Uextra>    \Md@DeclareSmallFontFamily[Extra]{U}  {MyriadPro}
+%<LGR>       \Md@DeclareSmallFontFamily       {LGR}{MyriadPro}
+%<LGI>       \Md@DeclareSmallFontFamily       {LGI}{MyriadPro}
+%<OT1>       \Md@DeclareLargeFontFamily       {OT1}{MyriadPro}
+%<T1>        \Md@DeclareLargeFontFamily       {T1} {MyriadPro}
+%<LY1>       \Md@DeclareLargeFontFamily       {LY1}{MyriadPro}
+%<T5>        \Md@DeclareLargeFontFamily       {T5} {MyriadPro}
+%<T2A>       \Md@DeclareSmallFontFamily       {T2A}{MyriadPro}
+%<T2B>       \Md@DeclareSmallFontFamily       {T2B}{MyriadPro}
+%<T2C>       \Md@DeclareSmallFontFamily       {T2C}{MyriadPro}
+%<TS1>       \Md@DeclareLargeFontFamily       {TS1}{MyriadPro}
+%<X2>        \Md@DeclareSmallFontFamily       {X2} {MyriadPro}
+%<OT2>       \Md@DeclareSmallFontFamily       {OT2}{MyriadPro}
+%<OML&tosf>  \Md@DeclareMathFontFamily        {OML}{MyriadPro}
 %<*OML&(lf|osf|tlf)>
-  \@for\My@variant:=LF,TLF,OsF\do{%
-    \DeclareFontFamily{OML}{MyriadPro-\My@variant}{\skewchar\font=255}
-    \@for\My@series:=m,sb,b,bx,eb\do{%
-      \@for\My@shape:=n,it\do{%
-        \DeclareFontShape{OML}{MyriadPro-\My@variant}{\My@series}{\My@shape}%
-          { <-> ssub*MyriadPro-TOsF/\My@series/\My@shape }{}
+  \@for\Md@variant:=LF,TLF,OsF\do{%
+    \DeclareFontFamily{OML}{MyriadPro-\Md@variant}{\skewchar\font=255}
+    \@for\Md@series:=m,sb,b,bx,eb\do{%
+      \@for\Md@shape:=n,it\do{%
+        \DeclareFontShape{OML}{MyriadPro-\Md@variant}{\Md@series}{\Md@shape}%
+          { <-> ssub*MyriadPro-TOsF/\Md@series/\Md@shape }{}
       }%
     }%
   }%
